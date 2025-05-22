@@ -2,67 +2,338 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', Arial, sans-serif;
-    background-color: #fcfcfc; 
+    background-color: #fff; 
     color: #333;
-  }
-  
-  main {
-    max-width: 65%;      
-    margin: 10px auto;   
-    background-color: #fcfcfc; 
-    padding: 20px;       
-    border-radius: 5px;  
-  }
-  
-  section {
-    margin-bottom: 30px;
-  }
-  
-  section h2 {
-    margin-bottom: 10px;
-    font-weight: 600; 
-  }
-  
-  #about p {
     line-height: 1.6;
-  }
-  
-  #links ul {
-    list-style-type: disc; 
+    height: 100%;
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.top-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.top-nav a:hover {
+    color: #666;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #666;
+}
+
+.layout {
+    max-width: 1200px;
+    margin: 100px auto 40px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.layout > main:only-child {
+    grid-column: 2;
+}
+
+.layout.no-sidebar {
+    grid-template-columns: 1fr;
+}
+
+.sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-section {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.profile-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #f0f0f0;
+}
+
+.profile-section h1 {
     margin: 0;
-    padding-left: 20px;
-  }
-  
-  #links li {
-    margin-bottom: 5px;
-  }
-  
-  .blog-post {
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 5px;
-  }
-  
-  .blog-post h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-  .post-date {
-    color: #999;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-  }
-  
-  .post-excerpt {
+    font-size: 1.5em;
+    color: #222;
+    font-weight: 600;
+}
+
+.sidebar .content-block:not(.profile-section) {
+    padding: 20px;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.sidebar .content-block:not(.profile-section) h2 {
+    margin: 0 0 15px 0;
+    font-size: 1.2em;
+    color: #222;
+}
+
+.sidebar ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 12px;
+}
+
+.sidebar li:last-child {
     margin-bottom: 0;
-  }
-  
-  footer {
+}
+
+.sidebar a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 0;
+}
+
+.link-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.link-logo[viewBox] {
+    width: 18px;
+    height: 18px;
+    color: #666;
+}
+
+.sidebar a:hover .link-logo[viewBox] {
+    color: #222;
+}
+
+.sidebar a:hover {
+    color: #666;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+section {
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #222;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+.content-block {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.about-section {
+    margin-bottom: 30px;
+}
+
+.about-section p {
+    line-height: 1.7;
+    color: #444;
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+.section-divider {
+    height: 1px;
+    background: #eee;
+    margin: 30px 0;
+}
+
+.blog-post {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-post:last-child {
+    border-bottom: none;
+}
+
+.blog-post h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.3em;
+}
+
+.blog-post a {
+    color: #222;
+    text-decoration: none;
+}
+
+.blog-post a:hover {
+    color: #666;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.post-excerpt {
+    margin-bottom: 0;
+    color: #555;
+}
+
+.view-all {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.view-all a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.view-all a:hover {
+    color: #222;
+}
+
+footer {
     text-align: center;
     padding: 20px;
     font-size: 0.9em;
     color: #999;
-  }
+    margin-top: 60px;
+    border-top: 1px solid #eee;
+}
+
+/* Code blocks */
+pre {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+}
+
+/* Blog post specific styles */
+.post-content {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #444;
+}
+
+.post-content p {
+    margin-bottom: 1.5em;
+}
+
+.post-content h2 {
+    margin: 2em 0 1em;
+    font-size: 1.4em;
+}
+
+.post-content h3 {
+    margin: 1.5em 0 1em;
+    font-size: 1.2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    header {
+        padding: 20px 20px 15px;
+    }
+    
+    .layout {
+        grid-template-columns: 1fr;
+        margin: 30px auto;
+        padding: 0 20px;
+        gap: 30px;
+    }
+    
+    .sidebar {
+        position: static;
+    }
+    
+    .top-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        justify-content: center;
+    }
+    
+    .content-block {
+        padding: 20px;
+    }
+}
   
